@@ -1,0 +1,96 @@
+#Bash
+#Damage and Stun
+#Advanced: Conditions
+Bash:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 5
+  - targetinlineofsight true
+  Skills:
+  - message{msg="<mob.name>&e bashes <target.name>!"} @PlayersInRadius{r=15}
+  - effect:sound{s=block.anvil.land;v=1;p=1;} @target
+  - damage{a=3} @target
+  - potion{t=SLOW;d=20;l=7}
+#Bleeding
+#Damage over time proc with blood particle
+#Advanced: Conditions
+Bleeding:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 5
+  - targetinlineofsight true
+  Skills:
+  - message{msg="&e<target.name> is bleeding."} @PlayersInRadius{r=15}
+  - effect:sound{s=entity.generic.hurt;v=1;p=1;} @target
+  - effect:particles{p=dripLava;vs=1;hs=1;a=2500;s=0.25;y=1;} @target
+  - damage{a=1;repeat=5;repeatInterval=20;} @target
+#Charge  
+#Large, brief speed buff
+#Advanced: Conditions
+Charge:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 20
+  - targetinlineofsight true
+  Skills:
+  - message{msg="<mob.name>&e charges towards <target.name>."} @PlayersInRadius{r=15}
+  - effect:particles{p=crit;vs=1;hs=1;a=250;s=2;} @self
+  - potion{t=SLOW;d=20;l=5} @target
+#Kick  
+#Damage, knockback and confusion
+#Advanced: Conditions
+Kick:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 5
+  - targetinlineofsight true
+  Skills:
+  - message{msg="<mob.name>&e kicks <target.name>."} @PlayersInRadius{r=15}
+  - damage{a=10} @target
+  - potion{t=CONFUSION;d=60;l=3} @target
+  - throw{v=5;} @target
+#Flurry
+#Multiple quick attacks with chance to hit
+#Advanced: Conditions  
+Flurry:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 5
+  - targetinlineofsight true
+  Skills:
+  - message{msg="<mob.name>&e unleashes a flurry of blows on <target.name>."} @PlayersInRadius{r=15}
+  - damage{a=3;} >0 0.75
+  - delay 1
+  - damage{a=3;} >0 0.75
+  - delay 1
+  - damage{a=3;} >0 0.75
+  - delay 1
+  - damage{a=3;} >0 0.75
+  - delay 1
+  - damage{a=3;} >0 0.75
+  - delay 1
+  - damage{a=3;} >0 0.75
+  - delay 1
+#Player Summon
+#Player summoned to mob if beyond a set distance
+#Advanced: Conditions  
+PlayerSummon:
+  Cooldown: 1
+  Conditions:
+  - targetnotwithin 5
+  Skills:
+  - message{msg="<target.name>&e has been summoned."} @PlayersInRadius{r=15}
+  - forcepull @target
+  - potion{t=SLOW;d=20;l=7} @target
+#Stealth
+#Brief Invisibility, damage increased while invisible
+#Advanced: Conditions  
+Stealth:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 30
+  Skills:
+  - message{msg="<mob.name>&e fades away."} @PlayersInRadius{r=15}
+  - potion{t=Invisibility;d=200;l=1}
+  - potion{t=INCREASE_DAMAGE;d=200;l=3}
+  - effect:particles{p=largesmoke;hs=1;vs=1;a=25;s=1;y=0.5}

@@ -1,0 +1,20 @@
+Test1Head:
+  Id: 397
+  Data: 3
+  Options:
+    Player: Notch
+Test1Clothes:
+  Id: leather_chestplate #299
+  Data: 0
+  Options:
+    Color: 0,0,0
+Test1Leggings:
+  Id: 300
+  Data: 0
+  Options:
+    Color: 255,255,255
+Test1Shoes:
+  Id: 301
+  Data: 0
+  Options:
+    Color: 122,122,255

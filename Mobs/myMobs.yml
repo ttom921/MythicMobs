@@ -1,0 +1,17 @@
+Test1:
+  Type: BABY_ZOMBIE 
+  Display: '&6測試用神奇怪物'
+  Health: 30
+  Damage: 10
+  Skills:
+  Equipment:
+  - Test1Head:4 1 1
+  - Test1Clothes:3 1 1
+  - Test1Leggings:2 1 1
+  - Test1Shoes:1 1 1
+  #- Test1Items:0 1 1
+  Drops:
+  - DropTable
+  Options:
+    MovementSpeed: 0.2
+    AlwaysShowName: true

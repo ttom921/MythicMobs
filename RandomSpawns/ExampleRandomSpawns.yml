@@ -1,0 +1,30 @@
+# 
+# These example files show you how to inject Mythic Mobs
+# you've created into your world. The name of each block
+# can be whatever you'd like but must be unique.
+#RandomSkeletonKing:
+#  Type: SkeletonKing
+#  Worlds: dugmaze
+#  Chance: 1
+#  Priority: 128
+#  Action: ADD
+#RandomSkeletalKnight:
+#  Type: SkeletalKnight
+#  Worlds: dugmaze
+#  Chance: 1
+#  Priority: 128
+#  Action: ADD
+#Random_CasterMob:
+#  Type: SkeletalKnight,SkeletalWizard_Fire,SkeletalWizard_Frost,SkeletalWizard_Lightning,SkeletalNecromancer,SkeletalCleric,SkeletalShaman
+#  Worlds: dugmaze
+#  Chance: 1
+#  Priority: 100
+#  Action: REPLACE
+#Random_MeleeMob:
+#  Type: SkeletalKnight,SkeletalWarrior,SkeletalRogue,SkeletalMonk
+#  Worlds: dugmaze
+#  Chance: 1
+#  Priority: 102
+#  Action: REPLACE
+ 
+

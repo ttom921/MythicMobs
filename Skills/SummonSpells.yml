@@ -1,0 +1,114 @@
+#Summon Decaying Skeleton
+RaiseBones:
+  Cooldown: 15
+  Conditions:
+  - targetwithin 20
+  - offgcd true
+  Skills:
+  - GCD{t=20}
+  - message{msg="<mob.name>&e begins casting a spell."} @PlayersInRadius{r=15}
+  - potion{t=SLOW;d=20;l=7}
+  - delay 20
+  - message{msg="<mob.name>&e animates an undead servant."} @PlayersInRadius{r=15}
+  - effect:sound{s=entity.irongolem.death;v=1;p=1;}
+  - effect:particles{p=largesmoke;hs=1;vs=1;a=250;s=1;y=0.5;}
+  - summon{type=DecayingSkeleton;r=4;a=5;}
+#
+#
+DecayingSkeleton:
+  Mobtype: skeleton
+  Display: '&aDecaying Skeleton'
+  Health: 15
+  Damage: 1
+  Options:
+    FollowRange: 10
+    AlwaysShowName: false
+    MovementSpeed: 0.20
+    PreventOtherDrops: true
+#--------------------------------------
+#Summon Undead Thrall
+RaiseThrall:
+  Cooldown: 15
+  Conditions:
+  - targetwithin 15
+  - offgcd true
+  Skills:
+  - GCD{t=40}
+  - message{msg="<mob.name>&e begins casting a spell."} @PlayersInRadius{r=15}
+  - potion{t=SLOW;d=40;l=7}
+  - delay 40
+  - message{msg="<mob.name>&e animates an undead servant."} @PlayersInRadius{r=15}
+  - effect:sound{s=entity.irongolem.death;v=1;p=1;}
+  - effect:particles{p=largesmoke;hs=1;vs=1;a=250;s=1;y=0.5;}
+  - summon{type=UndeadThrall;r=1;a=5;}
+
+UndeadThrall:
+  Mobtype: skeleton
+  Display: '&aUndead Thrall'
+  Health: 50
+  Damage: 3
+  DamageModifiers:
+  - POISON 0.5
+  - WITHER 0.5
+  - ENTITY_ATTACK 0.75
+  - PROJECTILE 0.75
+  Skills:
+  - skill{s=PetSuicide} ~onTimer:6000
+  Options:
+    FollowRange: 20
+    AlwaysShowName: false
+    MovementSpeed: 0.3
+    PreventOtherDrops: true
+       
+PetSuicide:
+  Cooldown:
+  Skills:
+  - damageself 1000:true >0 1
+# -----------------------------
+#Summon Swarm  
+ShadowSwarm:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 20
+  - offgcd true
+  Skills:
+  - GCD{t=20}
+  - message{msg="<mob.name>&e begins casting a spell."} @PlayersInRadius{r=15}
+  - potion{t=SLOW;d=20;l=7}
+  - delay 20
+  - message{msg="<mob.name>&e unleashes a swarm."} @PlayersInRadius{r=15}
+  - effect:sound{s=entity.irongolem.death;v=1;p=1;}
+  - effect:particles{p=portal;hs=1;vs=1;a=250;s=2;y=1;}	
+  - summon{type=ShadowSwarm_Spider;r=3;a=5;}
+  - summon{type=ShadowSwarm_Skeleton;r=3;a=5;}
+ShadowSwarm_Spider:
+  Mobtype: spider
+  Display: '&9Shadowed Swarm'
+  Health: 25
+  Damage: 1
+  Options:
+    FollowRange: 20
+    AlwaysShowName: false
+    MovementSpeed: 0.4
+    PreventOtherDrops: true
+  Skills:
+  - skill{s=ShadowSuicide} ~onTimer:300
+
+ShadowSwarm_Skeleton:
+  Mobtype: skeleton
+  Display: '&9Shadowed Swarm'
+  Health: 25
+  Damage: 1
+  Options:
+    FollowRange: 10
+    AlwaysShowName: false
+    MovementSpeed: 0.4
+    PreventOtherDrops: true
+  Skills:
+  - skill{s=ShadowSuicide} ~onTimer:300
+
+ShadowSuicide:
+  Cooldown:
+  Skills:
+  - message{msg="<mob.name>&e returns to the shadow."} @PlayersInRadius{r=15}
+  - remove @self

@@ -1,0 +1,45 @@
+#Self Heal
+HealSelf:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 15
+  - offgcd true
+  Skills:
+  - GCD 40
+  - message{msg="<mob.name>&e begins casting a spell."} @PIR{r=15;}
+  - potion{t=SLOW;d=40;l=7}
+  - delay 40
+  - message{msg="<mob.name>&ehas been healed."} @PIR{r=15;}
+  - effect:sound{s=entity.wither.spawn;v=1;p=1;}
+  - effect:particles{p=heart;hs=1;vs=1;s=1;a=50;s=1;}
+  - heal{a=25}
+#Group Heal
+GroupHeal:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 20
+  - offgcd true
+  Skills:
+  - GCD 60
+  - message{msg="<mob.name>&e begins casting a spell."} @PIR{r=15;}
+  - potion{t=SLOW;d=40;l=7}
+  - delay 60
+  - message{msg="<mob.name>&e heals their allies."} @PIR{r=15;}
+  - effect:sound{s=entity.wither.spawn;v=1;p=1;}
+  - effect:particles{p=heart;hs=5;vs=1;s=1;a=250;s=1;}
+  - heal{a=20} @MIR{r=10;t=Witch,Wolf,Spider,Cave_Spider,wither_skeleton,skeleton,zombie,zombie_villager;}
+#Regeneration
+Regeneration:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 15
+  - offgcd true
+  Skills:
+  - GCD 60
+  - message{msg="<mob.name>&e begins casting a spell."} @PIR{r=15;}
+  - potion{t=SLOW;d=40;l=7} >0 1
+  - delay 60
+  - message{msg="<mob.name>&e begins regenerating."} @PIR{r=15;}
+  - effect:sound{s=entity.wither.spawn;v=1;p=1;}
+  - effect:particles{p=heart;hs=1;vs=1;s=1;a=50;s=1;repeat=4;repeatInterval=40;}
+  - heal{a=5;repeat=9;repeatInterval=20;}  

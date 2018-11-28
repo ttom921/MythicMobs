@@ -1,0 +1,12 @@
+Test1Random:
+  Type: Test1,SkeletalKnight,SkeletonKing,SkeletalMinion
+  Worlds: dugmaze
+  Chance: 1
+  Priority: 128
+  Action: ADD
+  Conditions:
+  - height 0-72
+  
+  
+  
+  

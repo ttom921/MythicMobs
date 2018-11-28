@@ -1,0 +1,48 @@
+#Weaken
+Weaken:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 15
+  - targetinlineofsight true
+  - offgcd true
+  Skills:
+  - GCD 40
+  - message{msg="<mob.name>&e begins casting a spell."} @PIR{r=15;}
+  - potion{t=SLOW;d=40;l=7}
+  - delay 40
+  - message{msg="<mob.name>&e looks frail."} @PIR{r=15;}
+  - potion{t=WEAKNESS;d=200;l=2}
+  - effect:particles{p=mobSpell;hs=1;vs=1;a=200;s=1;y=1;}
+#Root
+Root:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 15
+  - targetinlineofsight true
+  - offgcd true
+  Skills:
+  - GCD 40
+  - message{msg="<mob.name>&e begins casting a spell."} @PIR{r=15;} 
+  - potion{t=SLOW;d=40;l=7} 
+  - delay 40
+  - message{msg="<target.name>&e is entwined by roots."} @PIR{r=15;}
+  - effect:sound{s=entity.wither.spawn;v=2;p=1;}
+  - effect:particles{p=happyVillager;hs=1;vs=1;a=50;s=0.01;}
+  - potion{t=SLOW;d=100;l=7}
+#Snare  
+Snare:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 15
+  - targetinlineofsight true
+  - offgcd true
+  Skills:
+  - GCD 40
+  - message{msg="<mob.name>&e begins casting a spell."} @PIR{r=15;} 
+  - potion{t=SLOW;d=40;l=7}
+  - delay 40
+  - message{msg="<target.name>&e is ensnared."} @PIR{r=15;}
+  - effect:sound{s=entity.wither.spawn;v=2;p=1;}
+  - effect:particles{p=happyVillager;hs=1;vs=1;a=50;s=0.01;}
+  - potion{t=SLOW;d=300;l=2}
+  

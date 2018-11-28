@@ -1,0 +1,96 @@
+#Single Target Damage / Speed Buff
+Sharpen:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 20
+  - offgcd true
+  Skills:
+  - GCD{t=40}
+  - message{msg="<mob.name>&e begings sharpening its weapon."} @PIR{r=15}
+  - effect:sound{sound=entity.item.break;volume=1;p=1} @self
+  - effect:particles{particle=crit;amount=250;vSpread=1;hSpread=1;Speed=0.1;} @self
+  - potion{type=SLOW;duration=40;level=7;} @self
+  - delay 40
+  - effect:sound{sound=entity.item.break;volume=1;p=1} @self
+  - effect:particles{particle=crit;amount=250;vSpread=1;hSpread=1;Speed=0.1;} @self
+  - potion{type=INCREASE_DAMAGE;duration=160;level=3;} @self
+  - potion{type=SPEED;duration=160;level=3;} @self
+#Group Damage / Speed Buff
+Fury:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 20
+  - offgcd true
+  Skills:
+  - GCD 60
+  - message{msg="<mob.name>&e begins casting a spell."} @PIR{r=15}
+  - potion{type=SLOW;duration=60;level=7;} @self
+  - delay 60
+  - message{msg="<mob.name><&co>s&e allies go berserk."} @PIR{r=15}
+  - effect:sound{sound=entity.wither.spawn;volume=1;pitch=1;} @self
+  - effect:particles{particle=fireworksSpark;amount=1000;vSpread=1;hSpread=5;Speed=0.01;} @self
+  - potion{type=INCREASE_DAMAGE;duration=300;level=2;} @MIR{r=15;t=Zombie,Skeleton,Spider,Witch,Wolf,Cave_spider,Zombie_villager}
+  - potion{type=SPEED;duration=300;level=2;} @MIR{r=15;t=Zombie,Skeleton,Spider,Witch,Wolf,Cave_spider,Zombie_villager}
+#Single Target Damage Resistance
+DamageResist:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 20
+  - offgcd true
+  Skills:
+  - GCD 60
+  - message{msg="<mob.name>&e begins casting a spell."} @PIR{r=15}
+  - potion{type=SLOW;duration=40;level=7;} @self
+  - delay 40
+  - message{msg="<mob.name>&e is shielded."} @PIR{r=15}
+  - effect:particles{particle=slime;amount=250;vSpread=1;hSpread=1;Speed=0.1;} @self
+  - potion{type=DAMAGE_RESISTANCE;duration=80;level=1;} @self
+#Group Damage Resistance
+GroupDamageResist:
+  Cooldown: 1
+  Conditions:
+  - targetwithin 20
+  - offgcd true
+  Skills:
+  - GCD 60
+  - message{msg="<mob.name>&e begins casting a spell."} @PIR{r=15}
+  - potion{type=SLOW;duration=60;level=7;} @self
+  - delay 60
+  - message{msg="<mob.name>&e shields their allies."} @PIR{r=15}
+  - effect:particles{particle=slime;amount=2500;vSpread=1;hSpread=10;Speed=0.1;} @self
+  - potion{type=DAMAGE_RESISTANCE;duration=80;level=1;} @MIR{r=10;t=Zombie,Skeleton,Spider,Witch,Wolf,Cave_spider,Zombie_villager}
+#Single Target Invisibility  
+Invisibility:
+  Cooldown: 200
+  Skills:
+  - potion{type=INVISIBILITY;duration=200;level=1;} @MIR{r=10;t=Zombie,Skeleton,Spider,Witch,Wolf,Cave_spider,Zombie_villager}
+#Single Target Damage Immunity  
+DamageImmunity:
+  Cooldown: 30
+  Conditions:
+  - targetwithin 20
+  - offgcd true
+  Skills:
+  - GCD{t=40}
+  - message{msg="<mob.name>&e begins casting a spell."} @PIR{r=15}
+  - potion{type=SLOW;duration=40;level=7;} @self
+  - delay 40
+  - message{msg="<mob.name>&e is immune to damage."} @PIR{r=15}
+  - effect:sound{sound=block.anvil.use;volume=2;pitch=1;}
+  - effect:particles{p=mobSpell;hspread=10;vspread=1;amount=100;speed=2;} @self
+  - potion{type=DAMAGE_RESISTANCE;duration=100;level=5;} @self
+#Group Damage Immunity  
+GroupDamageImmunity:
+  Cooldown: 30
+  Conditions:
+  - targetwithin 20
+  - offgcd true
+  Skills:
+  - GCD 60
+  - message{msg="<mob.name>&e begins casting a spell."} @PIR{r=15}
+  - potion{type=SLOW;duration=60;level=7;} @self
+  - delay 60
+  - message{msg="<mob.name>&e grants their allies immunity."} @PIR{r=15}
+  - effect:sound{sound=block.anvil.use;volume=2;pitch=1;}
+  - effect:particles{p=mobSpell;hspread=10;vspread=1;amount=1000;speed=2;} @self
+  - potion{type=DAMAGE_RESISTANCE;duration=100;level=5;} @MIR{r=10;t=Zombie,Skeleton,Spider,Witch,Wolf,Cave_spider,Zombie_villager}
